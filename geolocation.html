@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Simple Geolocation</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+
+<h4>Getting location...</h4>
+<span class="latitude"></span>
+<span class="longitude"></span>
+
+<div class="map-wrapper"></div>
+<script type="text/javascript">
+	(function() {
+		var lat = document.querySelector('.latitude'),
+			lng = document.querySelector('.longitude'),
+			heading = document.querySelector('h4');
+
+
+			function getLocation() {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+				}
+				else
+				{
+					console.log('no geolocation for you!');
+				}
+			}
+
+			function showPosition(position) {
+				heading.innerHTML = "Got Location!";
+				lat.innerHTML = "Latitude: " + position.coords.latitude;
+				lng.innerHTML = "Longitude: " + position.coords.longitude;
+			}
+
+			getLocation();
+	})();
+
+
+</script>
+</body>
+</html>
