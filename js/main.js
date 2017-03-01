@@ -1,6 +1,6 @@
 (function(){
 
-	var map = new google.maps.Map(document.querySelector('.map-wrapper')), marker;
+	var map = new google.maps.Map(document.querySelector('.map-wrapper')),preloader = document.querySelector('.preload-wrapper'), marker;
 
 	function initMap(position) {
 
@@ -13,6 +13,8 @@
 			map: map,
 			title: 'Hello World!'
 		});
+
+		preloader.classList.add('hide-preloader');
 	}
 
 	if (navigator.geolocation) {
